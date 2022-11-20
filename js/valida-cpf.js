@@ -1,10 +1,8 @@
 export default function ehUmCPF(campo) {
     const cpf = campo.value.replace(/\.|-/g, "");
     if (validaNumerosRepetidos(cpf) || validaPrimeiroDigito(cpf) ||validaSegundoDigito(cpf)) {
-        console.log("Esse CPF não existe!")
-    } else {
-        console.log("Existe!")
-    }
+        campo.setCustomValidity('Esse CPF não é válido');
+    } 
 }
 
 function validaNumerosRepetidos(cpf) {
@@ -29,7 +27,7 @@ function validaPrimeiroDigito(cpf) {
 
     for(let tamanho = 0; tamanho < 9; tamanho++) {
         soma += cpf[tamanho] * multiplicador;
-        multiplicador--
+        multiplicador--;
     }
     
     soma = (soma * 10) % 11;
@@ -48,7 +46,7 @@ function validaSegundoDigito(cpf) {
 
     for(let tamanho = 0; tamanho < 10; tamanho++) {
         soma += cpf[tamanho] * multiplicador;
-        multiplicador--
+        multiplicador--;
     }
     
     soma = (soma * 10) % 11;
