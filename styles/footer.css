@@ -47,6 +47,8 @@
     }
 
     .redes-sociais__lista {
-        display: block;
+        display: flex;
+        justify-content: flex-start;
+        gap: 1.5rem;
     }
 }
