@@ -17,6 +17,7 @@ botaoIniciarCamera.addEventListener('click', async function () {
             video.srcObject = iniciarVideo;
 
             document.querySelector('.formulario__texto').style.display = 'none';
+            mensagem.style.display = "none";
 
         } catch (error) {
             console.error("Erro ao acessar a câmera:", error);
