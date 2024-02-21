@@ -72,3 +72,25 @@
         display: block;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .cabecalho__logo-inicio {
+        font-size: 3.5rem;
+    }
+    
+    .cabecalho {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cabecalho-lista {
+        margin: 2rem 0 0 0;
+        font-size: 1rem;
+        justify-content: space-between;
+
+    }
+
+    .cabecalho-lista .cabecalho-lista__item:nth-child(-n+3) {
+        display: none;
+    }
+}

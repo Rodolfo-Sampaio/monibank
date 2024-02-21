@@ -10,7 +10,6 @@
     text-align: center;
 }
 
-
 .banner__titulo {
     font-weight: 600;
     color: var(--branco);
@@ -70,7 +69,7 @@
     display: block;
     border: 2px solid var(--azul-claro);
     border-radius: 20px;
-    width: 100%;
+    width: 90%;
     padding: 1em;
     margin-top: .5em;
 
@@ -158,5 +157,42 @@
 
     .container {
         margin: 2em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .banner__titulo {
+        width: 70%;
+        font-size: 1.4rem;
+    }
+
+    .banner {
+        background-position: -15rem;
+    }
+
+    .formulario {
+        width: 95%;
+    }
+
+    .formulario__etapas {
+        width: 75%;
+    }
+
+    .formulario__titulo-texto {
+        font-size: 1.4rem;
+    }
+
+    .campo__escrita {
+        padding: .8rem;
+        font-size: 1rem;
+    }
+
+    .principal__formulario .campo__escrita:nth-child(3) {
+        width: auto;
+        background-color: blue;
+    }
+
+    .formulario__texto-secundario {
+        margin: 2em 1em;
     }
 }
