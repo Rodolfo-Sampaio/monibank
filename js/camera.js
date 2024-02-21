@@ -9,13 +9,25 @@ const botaoEnviarFoto = document.querySelector("[data-enviar]");
 let imagemURL = "";
 
 botaoIniciarCamera.addEventListener('click', async function () {
-    const iniciarVideo = await navigator.mediaDevices
-        .getUserMedia({ video: true, audio: false });
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        try {
+            const iniciarVideo = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+            botaoIniciarCamera.style.display = "none";
+            campoCamera.style.display = "block";
+            video.srcObject = iniciarVideo;
 
-    botaoIniciarCamera.style.display = "none";
-    campoCamera.style.display = "block";
+            document.querySelector('.formulario__texto').style.display = 'none';
 
-    video.srcObject = iniciarVideo;
+        } catch (error) {
+            console.error("Erro ao acessar a câmera:", error);
+            mensagem.textContent = "Não foi possível acessar a câmera. Por favor, verifique se você tem uma câmera conectada ou se as permissões estão corretas.";
+            mensagem.style.display = "block";
+        }
+    } else {
+        console.error("A API getUserMedia não está disponível neste navegador.");
+        mensagem.textContent = "A API getUserMedia não está disponível neste navegador. Por favor, atualize para a versão mais recente ou use um navegador diferente.";
+        mensagem.style.display = "block";
+    }
 });
 
 botaoTirarFoto.addEventListener("click", function() {
